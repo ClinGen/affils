@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>ClinGen Affiliations Service</h1>
+<nav>
+    <p>You are logged in as: {{ email }}</p>
+    <a href="/logout">Log out</a>
+</nav>
+{% endblock %}
+{% block content %}
+{% if not affiliation %}
+<p>Not found</p>
+{% else %}
+<div class="buttons">
+    <button class="submit-button">Submit</button>
+    <a href="/">
+        <button class="cancel-button">Cancel Edit</button>
+    </a>
+</div>
+<div class="center">
+    <h3>ID: {{affiliation.id}}</h3>
+</div>
+<form>
+    <div class="form-grid">
+        <div class="form-group column">
+            <label>Name:</label>
+            <input type="text" value="{{affiliation.name}}" placeholder="Name"/>
+        </div>
+        <div class="form-group column">
+            <label>Status: {{affiliation.status}}</label>
+            <select>
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+        </div>
+        <div class="form-group column">
+            <label>Coordinator:</label>
+            <input type="text" value="{{affiliation.coordinator}}" placeholder="Name" />
+        </div>
+        <div class="form-group column">
+            <label>Coordinator Email:</label>
+            <input type="text" value="{{affiliation.coordinator_email}}" placeholder="user@example.com"/>
+        </div>
+        <div class="form-group column">
+            <label>Family:</label>
+            <input type="text" value="{{affiliation.family}}" placeholder="Family"/>
+        </div>
+        <div class="form-group column">
+            <label>Type:</label>
+            <input type="text" value="{{affiliation.type}}" placeholder="Type"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Members:</label>
+        <textarea rows="5" cols="100" placeholder="Name One&#10;Name Two">{{'\n'.join(affiliation.members)|safe}}</textarea>
+    </div>
+    <div class="form-group">
+        <label>Approvers:</label>
+        <textarea rows="5" cols="100" placeholder="Name One&#10;Name Two">{{'\n'.join(affiliation.approvers)|safe}}</textarea>
+    </div>
+    <div class="form-group">
+        <label>ClinVar Submitter IDs:</label>
+        <textarea rows="5" cols="100" placeholder="001&#10;002">{{'\n'.join(affiliation.clinvar_submitter_ids)|safe}}</textarea>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

@@ -722,3 +722,55 @@ sub {
   overflow-x: auto;
   padding: 1.5rem;
 }
+
+.form-group{
+  align-items: baseline;
+  margin-top: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-rows: 1fr 1fr;
+}
+
+.column {
+  width: 100%;
+}
+
+.submit-button {
+  color: white;
+  background-color: #31b033;
+  border: #31b033;
+  width: 150px;
+  height: 60px;
+  margin: 15px;
+}
+
+button.submit-button:hover {
+  background-color: #53d455;
+  border: #53d455;
+}
+
+.cancel-button {
+  color: white;
+  background-color: #b04831;
+  border: #b04831;
+  width: 150px;
+  height: 60px;
+  margin: 15px;
+}
+
+button.cancel-button:hover {
+  background-color: #e06d53;
+  border: #e06d53;
+}
+
+.buttons {
+  display: inline;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
